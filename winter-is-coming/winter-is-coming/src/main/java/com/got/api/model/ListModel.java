@@ -1,18 +1,22 @@
 package com.got.api.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Entity
 @JsonInclude(Include.NON_NULL)
+@Table(name = "battle_info")
 public class ListModel {
 	
 	@Id
+	@Column(name="battle_number	")
+	private String battle;
 	private String location;
 	private String region;
-	private String battle_number;
 	private String name;
 	private String year;
 	private String attacker_king;
@@ -48,7 +52,12 @@ public class ListModel {
 	}
 	
 	
-	public ListModel(String location, String region, String battle_number, String name, String year,
+	public ListModel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ListModel(String location, String region, String battle, String name, String year,
 			String attacker_king, String defender_king, String attacker_1, String attacker_2, String attacker_3,
 			String attacker_4, String defender_1, String defender_2, String defender_3, String defender_4,
 			String attacker_outcome, String battle_type, String major_death, String major_capture, String attacker_size,
@@ -56,7 +65,7 @@ public class ListModel {
 		super();
 		this.location = location;
 		this.region = region;
-		this.battle_number = battle_number;
+		this.battle = battle;
 		this.name = name;
 		this.year = year;
 		this.attacker_king = attacker_king;
@@ -80,11 +89,11 @@ public class ListModel {
 		this.summer = summer;
 		this.note = note;
 	}
-	public String getBattle_number() {
-		return battle_number;
+	public String getBattle() {
+		return battle;
 	}
-	public void setBattle_number(String battle_number) {
-		this.battle_number = battle_number;
+	public void setBattle(String battle) {
+		this.battle = battle;
 	}
 	public String getName() {
 		return name;
@@ -113,7 +122,7 @@ public class ListModel {
 	public String getAttacker_1() {
 		return attacker_1;
 	}
-	public void setAttacker_1(String attacker_1) {
+	public void setAttacker(String attacker_1) {
 		this.attacker_1 = attacker_1;
 	}
 	public String getAttacker_2() {
