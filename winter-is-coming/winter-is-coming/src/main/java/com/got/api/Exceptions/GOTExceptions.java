@@ -10,5 +10,9 @@ public class GOTExceptions extends RuntimeException{
 	public GOTExceptions(String exception) {
 		    super(exception);
 		  }
+	public GOTExceptions() {
+	    super();
+	  }
+	
 	    
 }
